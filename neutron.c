@@ -31,7 +31,7 @@ int main(){
 	p2.score = 0;
 	// Welcome message and controls
 	attron(COLOR_PAIR(3));
-	mvprintw(0, 0, "Welcome to NEUTRON by MarcAnthony Fanfan - Hello from Docker!");
+	mvprintw(0, 0, "Welcome to NEUTRON by MarcAnthony Fanfan");
 	attron(COLOR_PAIR(1));
 	mvprintw(4, 0, "P1 Controls:\nWASD to Change Direction\nV to Boost");
 	attron(COLOR_PAIR(2));
