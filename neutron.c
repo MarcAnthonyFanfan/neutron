@@ -15,25 +15,40 @@ char ch = 0;
 struct Player p1, p2;
 
 void check();
-void display_welcome_message();
 
-int main() {
-	// Init screen, noecho, cbreak, curs_set options
+int main(){
+	// Initialize game settings
 	initscr();
-	noecho();
-	cbreak();
-	curs_set(FALSE);
-	// Start color mode and declare color pallets
 	start_color();
     init_pair(1, COLOR_WHITE, COLOR_CYAN);
 	init_pair(2, COLOR_WHITE, COLOR_YELLOW);
 	init_pair(3, COLOR_WHITE, COLOR_GREEN);
     init_pair(4, COLOR_BLACK, COLOR_BLACK);
-	// Set scores to 0
+	noecho();
+	curs_set(FALSE);
+	cbreak();
 	p1.score = 0;
 	p2.score = 0;
 	// Welcome message and controls
-	display_welcome_message();
+	attron(COLOR_PAIR(3));
+	mvprintw(0, 0, "Welcome to NEUTRON by MarcAnthony Fanfan");
+	attron(COLOR_PAIR(1));
+	mvprintw(4, 0, "P1 Controls:\nWASD to Change Direction\nV to Boost");
+	attron(COLOR_PAIR(2));
+	mvprintw(8, 0, "P2 Controls:\nIJKL to Change Direction\n/ to Boost");
+	attron(COLOR_PAIR(3));
+	mvprintw(14, 0, "Press SPACE to Start Game or ESC to Quit");
+	refresh();
+	while(1){
+		ch = getch();
+		if(ch == ' '){
+			break;
+		}
+		if(ch == 27){
+			quit = 1;
+			break;
+		}
+	}
 	// Game loop
 	while(!quit){
 		// Reset
@@ -281,27 +296,4 @@ void check(){
 		p2.dx *= 3;
 		p2.dy *= 3;
 	}
-}
-
-void display_welcome_message() {
-	attron(COLOR_PAIR(3));
-	mvprintw(0, 0, "Welcome to NEUTRON by MarcAnthony Fanfan");
-	attron(COLOR_PAIR(1));
-	mvprintw(4, 0, "P1 Controls:\nWASD to Change Direction\nV to Boost");
-	attron(COLOR_PAIR(2));
-	mvprintw(8, 0, "P2 Controls:\nIJKL to Change Direction\n/ to Boost");
-	attron(COLOR_PAIR(3));
-	mvprintw(14, 0, "Press SPACE to Start Game or ESC to Quit");
-	refresh();
-	while(1){
-		ch = getch();
-		if(ch == ' '){
-			break;
-		}
-		if(ch == 27){
-			quit = 1;
-			break;
-		}
-	}
-	return;
 }
