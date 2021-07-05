@@ -25,10 +25,10 @@ int main() {
 	curs_set(FALSE);
 	// Start color mode and declare color pallets
 	start_color();
-    init_pair(1, COLOR_WHITE, COLOR_RED);
+	init_pair(1, COLOR_WHITE, COLOR_RED);
 	init_pair(2, COLOR_WHITE, COLOR_BLUE);
 	init_pair(3, COLOR_WHITE, COLOR_MAGENTA);
-    init_pair(4, COLOR_BLACK, COLOR_BLACK);
+	init_pair(4, COLOR_BLACK, COLOR_BLACK);
 	// Set scores to 0
 	p1.score = 0;
 	p2.score = 0;
