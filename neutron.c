@@ -27,7 +27,7 @@ int main() {
 	start_color();
 	init_pair(1, COLOR_WHITE, COLOR_CYAN);
 	init_pair(2, COLOR_WHITE, COLOR_YELLOW);
-	init_pair(3, COLOR_WHITE, COLOR_GREED);
+	init_pair(3, COLOR_WHITE, COLOR_GREEN);
 	init_pair(4, COLOR_BLACK, COLOR_BLACK);
 	// Set scores to 0
 	p1.score = 0;
